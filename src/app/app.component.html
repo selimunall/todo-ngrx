@@ -1,0 +1,50 @@
+<div class="w-screen flex items-center justify-center h-screen bg-white">
+  <div
+    class="w-11/12 h-4/5 bg-[#FFE3BB] font-bold rounded-md border shadow-md flex flex-col"
+  >
+    <header class="p-2 w-full text-lg border-b border-black">
+      Selim - TodoApp
+    </header>
+    <div>
+      <form [formGroup]="form" (ngSubmit)="addTodo()">
+        <div class="w-full p-4 flex flex-col gap-2">
+          <label [for]="todoInput" class="flex items-center text-lg gap-4"
+            >Add New Todo</label
+          >
+          <div class="w-full flex gap-2">
+            <input
+              #todoInput
+              formControlName="todo"
+              type="text"
+              class="w-full p-2"
+            />
+            <button class="px-3 bg-blue-300 rounded-md">Add Todo</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="w-full p-4">
+        <div class="flex gap-2 border-b-[4px] pb-2 border-white">
+          <span class="text-lg">Todos</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input (click)="showChecked.set(!showChecked())"  type="checkbox" value="" class="sr-only peer" [checked]="showChecked()" />
+            <div
+              class="w-11 h-6 bg-gray-200 rounded-full peer dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[0] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"
+            ></div>
+          </label>
+        </div>
+        <div class="flex flex-col gap-2"> 
+            @for(item of todos(); track item) {
+            <div
+              [ngClass]="{ 'line-through': item.checked }"
+              class="w-full p-2 cursor-pointer bg-white"
+              (click)="toggleChecked(item.id, !item.checked)"
+            >
+              {{ item.todo }}
+            </div>
+            }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

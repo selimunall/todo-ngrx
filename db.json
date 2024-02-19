@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "checked": false,
+      "todo": "selim"
+    },
+    {
+      "id": 2,
+      "checked": true,
+      "todo": "murat"
+    },
+    {
+      "id": 3,
+      "checked": false,
+      "todo": "zeynep"
+    },
+    {
+      "checked": false,
+      "todo": "asdasd",
+      "id": 4
+    }
+  ]
+}
